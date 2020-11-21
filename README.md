@@ -16,6 +16,12 @@
 - 点击查看：[Web和WebSocket](https://gitee.com/wavelets/linux-work/tree/master/websocket)
 - 实现功能：
     - [端用户之间通过webSocket通讯](https://gitee.com/wavelets/linux-work/tree/master/websocket/socket_service)
-    - [保存用户之间的通话记录到数据库](https://gitee.com/wavelets/linux-work/tree/master/websocket/api)
-        - 实现的API：
-            - 获取
+    - [保存用户之间的会话记录到数据库](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
+    - [获取用户会话记录](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
+    - [删除用户会话记录](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
+- 前端：
+    [调用用户会话、获取用户会话记录、删除用户会话记录、添加用户会话记录API](https://gitee.com/wavelets/linux-work/tree/master/websocket/template)
+- API
+    - get("/getContent", getContent)：前端通过Axios.js异步调用此接口（传递参数string cname、string uname），实现获取该用户直接的会话记录
+    - delete("/delContent", delContent)：前端通过Axios.js异步调用此接口（传递参数string content、string date），实现删除该用户直接的会话记录
+    - post("/addContent", addContent)：前端通过Axios.js异步调用此接口（传递参数ChatModel chat），实现添加该用户之间的会话记录
