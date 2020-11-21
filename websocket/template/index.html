@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WebSocket</title>
+  <link rel="stylesheet" type="text/css" href="./static/index.css" />
+  <script src="./static/vue.js"></script>
+  <script src="./static/axios.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="chat" v-if="isLogin">
+      <div id="chat">
+        <div class="sidebar">
+          <div class="m-card">
+            <header>
+              <img class="avatar" @click="onAvatar" width="40" height="40" :src="userObj.uavatar">
+              <p class="name" id="uid">{{ userObj.uname }}</p>
+            </header>
+            <footer>
+              <input class="search" type="text" placeholder="搜索聊天记录..." @keyup.enter="onSearch" v-model="search">
+            </footer>
+          </div>
+          <div class="m-list">
+            <ul class="anser">
+              <li v-for="(item, i) of contents" :key="i">
+                <p class="anser-uname"><span>{{ item.uname }}:</span> <span>{{ item.date }}</span></p>
+                <p class="anser-cont">{{ item.content }}</p>
+                <p class="anser-del" @click="onDele(item, i)"><img src="./static/img/del.PNG" /></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main">
+          <div class="main-header">
+            <span>{{ userObj.uname }}</span>
+            <img class="main-header__img" src="./static/img/0.PNG"><img>
+            <span>{{ userObj.cname }}</span>
+          </div>
+          <div class="m-message">
+            <ul>
+              <li v-for="(item, i) of msgList" :key="i">
+                <p class="time"><span>{{ item.date }}</span></p>
+                <div class="main" :class="isCname(item) ? 'self' : ''">
+                  <img class="avatar" width="30" height="30" :src="isCname(item) ? item.uavatar : item.cavatar">
+                  <div class="text">{{ item.content }}</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="m-text">
+            <textarea @keyup.ctrl.enter="onSend" v-model="userObj.content" class="scroll" id="text" wrap="hard"
+              placeholder=" ctrl + enter 发送..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <login v-else @input="onLogin"></login>
+    <popup v-if="visible" @selavatar="onSelAvatar"></popup>
+  </div>
+</body>
+
+<script src="./template/login.js"></script>
+<script src="./template/popup.js"></script>
+<script src="./template/app.js"></script>
+
+</html>
