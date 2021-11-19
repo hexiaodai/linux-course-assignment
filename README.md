@@ -1,4 +1,4 @@
-## Linux 小组作业
+## Linux 课程作业
 
 ### 作业一
 - [何建民](https://gitee.com/hexiaodai/linux/blob/master/notes.md)
@@ -16,15 +16,17 @@
 - 点击查看：Linux的IO模型Java channel selector buffer的实现举例
 
 ### 作业六
-- 点击查看：[Web和WebSocket](https://gitee.com/wavelets/linux-work/tree/master/websocket)
-- 实现功能：
-    - [端用户之间通过webSocket通讯](https://gitee.com/wavelets/linux-work/tree/master/websocket/socket_service)
-    - [保存用户之间的会话记录到数据库](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
-    - [获取用户会话记录](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
-    - [删除用户会话记录](https://gitee.com/wavelets/linux-work/blob/master/websocket/api/controllers/ChatController.java)
-- 前端：
-    [调用用户会话、获取用户会话记录、删除用户会话记录、添加用户会话记录API](https://gitee.com/wavelets/linux-work/tree/master/websocket/template)
-- API
-    - get("/getContent", getContent)：前端通过Axios.js异步调用此接口（传递参数string cname、string uname），实现获取该用户直接的会话记录
-    - delete("/delContent", delContent)：前端通过Axios.js异步调用此接口（传递参数string content、string date），实现删除该用户直接的会话记录
-    - post("/addContent", addContent)：前端通过Axios.js异步调用此接口（传递参数ChatModel chat），实现添加该用户之间的会话记录
+下半个学期完善了部分功能 👉 传送门：https://github.com/hexiaodai/im_service.git
+#### 实现功能
+- 权限验证
+- 登录、注册
+- 添加好友、群
+- 修改个人信息
+- 心跳检测
+- 单聊
+- 群聊
+- 发送图片、视频、表情包
+- 好友上线、下线通知
+- 添加好友、群通知
+- 离线消息
+- 消息漫游
